@@ -1,0 +1,62 @@
+  //Pins Motor A
+  int pinI1A=7;
+  int pinI2A=8;
+  int speedpinA=11;
+  
+  //Pins Motor B
+  int pinI1B=5;
+  int pinI2B=6;
+  int speedpinB=10;
+  
+  
+  //define EA(PWM speed regulation)port
+  void setup()
+  {
+      //Motor A Output pin cofiguration
+      pinMode(pinI1A,OUTPUT);  
+      pinMode(pinI2A,OUTPUT);
+      pinMode(speedpinA,OUTPUT);
+      
+      //Motor B output pin cofiguration
+      pinMode(pinI1B,OUTPUT);
+      pinMode(pinI2B,OUTPUT);
+      pinMode(speedpinB,OUTPUT);
+  }
+  void loop()
+  {
+    //Motor A  
+    analogWrite(speedpinA,100);    //input a  value to set the speed
+    delay  (2000);
+    
+    digitalWrite(pinI1A,LOW);    //DC motor rotates clockwise
+    digitalWrite(pinI2A,HIGH);
+    analogWrite(speedpinA,100);
+    delay(2000);
+    
+    digitalWrite(pinI1A,HIGH);    //DC motor rotates anticlockwise
+    digitalWrite(pinI2A,LOW);
+    analogWrite(speedpinA,100);
+    delay(2000);
+    
+    digitalWrite(pinI1A,HIGH);    //DC motor stop rotating
+    digitalWrite(pinI2A,HIGH);
+    delay(2000);
+    
+    //Motor B
+    analogWrite(speedpinB,100);    //input a  value to set the speed
+    delay  (2000);
+    
+    digitalWrite(pinI1B,LOW);    //DC motor rotates clockwise
+    digitalWrite(pinI2B,HIGH);
+    analogWrite(speedpinB,100);
+    delay(2000);
+    
+    digitalWrite(pinI1B,HIGH);    //DC motor rotates anticlockwise
+    digitalWrite(pinI2B,LOW);
+    analogWrite(speedpinB,100);
+    delay(2000);
+    
+    digitalWrite(pinI1B,HIGH);    //DC motor stop rotating
+    digitalWrite(pinI2B,HIGH);
+    delay(2000);
+  }
